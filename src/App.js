@@ -83,19 +83,20 @@ class App extends Component {
       <div className="App">
          <div className="inputGroup">
            <h1>Simple Countdown</h1>
-            <h3>Hrs</h3>
+           <h1> Time Remaining {hours}: {minutes} : {seconds} </h1>
+            <h3>Hours</h3>
             <input ref={this.hoursInput} type="number" placeholder={0}  name="hours"  onChange={this.inputHandler} />
-            <h3>Min</h3>
+            <h3>Minutes</h3>
             <input  ref={this.minutesInput} type="number"  placeholder={0}   name="minutes"  onChange={this.inputHandler} />
-            <h3>Sec</h3>
+            <h3>Seconds</h3>
             <input   ref={this.secondsInput} type="number"  placeholder={0}  name="seconds"  onChange={this.inputHandler} />
          </div>
+
          <div>
-            <button onClick={this.startTimer} className="start">start</button>
-            <button onClick={this.stopTimer}  className="stop">stop</button>
-            <button onClick={this.resetTimer}  className="reset">reset</button>
+            <button onClick={this.startTimer} className="start">START</button>
+            <button onClick={this.stopTimer}  className="stop">PAUSE</button>
+            <button onClick={this.resetTimer}  className="reset">RESET</button>
          </div>
-         <h1> Time Remaining {hours}: {minutes} : {seconds} </h1>
       </div>
 
     );
