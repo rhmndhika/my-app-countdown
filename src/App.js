@@ -61,11 +61,7 @@ class App extends Component {
         this.setState({hours: hours-1});
       }
 
-      if(this.setState({
-        hours: 0,
-        minutes: 0,
-        seconds: 0
-      })){
+      if(hours === 0 && minutes === 0 && seconds === 0){
         <Zoro />
       }
 
