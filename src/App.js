@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 
 
-  
+function Zoro (){
+  return(
+    <p>BOOM!</p>
+  )
+
+}
+
 class App extends Component {
   constructor() {
     super();
@@ -27,12 +33,13 @@ class App extends Component {
   }
 
   startTimer = () => {
-    this.timer = setInterval(this.countDown, 1000);
+    this.timer = setInterval(this.countDown, 1000);    
   }
 
   countDown = () => {
     const  { hours, minutes, seconds } = this.state;
     let c_seconds = this.convertToSeconds(hours, minutes, seconds);
+
 
     if(c_seconds) {
 
@@ -54,11 +61,27 @@ class App extends Component {
         this.setState({hours: hours-1});
       }
 
+      if(this.setState({
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+      })){
+        <Zoro />
+      }
+
     } else {
       clearInterval(this.timer);
     }
   }
 
+
+  Zero = () => {
+    this.setState({
+      hours: <Zoro />,
+      minutes: "",
+      seconds: ""
+    });
+  }
 
   stopTimer = () => {
     clearInterval(this.timer);
@@ -96,12 +119,13 @@ class App extends Component {
             <button onClick={this.startTimer} className="start">START</button>
             <button onClick={this.stopTimer}  className="stop">PAUSE</button>
             <button onClick={this.resetTimer}  className="reset">RESET</button>
+            <button onClick={this.Zero}>BOOM</button>
          </div>
       </div>
-
     );
   }
 }
+
 
 export default App;
 
